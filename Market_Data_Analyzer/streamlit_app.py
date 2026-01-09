@@ -60,14 +60,16 @@ if st.button("Calculate Metrics", type="primary"):
                         daily_vol_float = daily_vol.iloc[0]
                         annual_returns = mt.annual_returns(daily_vol)
                         annual_returns_float = annual_returns.iloc[0]
+                        urrent_price = float(data['Close'].iloc[-1])
 
                         # Display Metrics
                         st.markdown("### Key Metrics")
-                        m_col1, m_col2 = st.columns(2)
+                        m_col1, m_col2 = st.columns(3)
                         m_col1.metric("Daily Volatility",
                                       f"{daily_vol_float*100:.2f}%")
                         m_col2.metric("Annual Returns",
                                       f"{annual_returns_float*100:.2f}%")
+                        m_col3.metric("Current Price", f"{current_price:.2f}")
 
                         st.markdown("---")
 
@@ -82,3 +84,4 @@ if st.button("Calculate Metrics", type="primary"):
 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
+
