@@ -46,11 +46,13 @@ try:
         daily_vol_float = daily_vol.iloc[0]
         annual_returns = mt.annual_returns(daily_vol)
         annual_returns_float = annual_returns.iloc[0]
+        current_price = float(data['Close'].iloc[-1])
 
         # Visualize and print results
         print("\n--- Results ---")
         print(f"Daily volatility: {daily_vol_float*100:.2f}%")
         print(f"Annual returns: {annual_returns_float*100:.2f}%")
+        print(f"Current Price: {current_price:.2f}")
 
         vis.plot(data['Close'], title=f"{ticker_symbol} Closing Prices")
         plt.show()
@@ -61,3 +63,4 @@ try:
 
 except Exception as e:
     print(f"An error occurred during analysis: {e}")
+
