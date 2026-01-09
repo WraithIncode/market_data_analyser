@@ -64,7 +64,7 @@ if st.button("Calculate Metrics", type="primary"):
 
                         # Display Metrics
                         st.markdown("### Key Metrics")
-                        m_col1, m_col2 = st.columns(3)
+                        m_col1, m_col2, m_col3 = st.columns(3)
                         m_col1.metric("Daily Volatility",
                                       f"{daily_vol_float*100:.2f}%")
                         m_col2.metric("Annual Returns",
@@ -84,5 +84,3 @@ if st.button("Calculate Metrics", type="primary"):
 
             except Exception as e:
                 st.error(f"An error occurred: {e}")
-
-
